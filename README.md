@@ -15,4 +15,4 @@ python3 main.py
 ```
 
 ## Demo
-![](img/demo.gif)
+![](demo.gif)
