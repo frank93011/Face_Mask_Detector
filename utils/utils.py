@@ -37,7 +37,7 @@ def predict_draw(model, img):
             output = prob.max(1)[1]
             # print(prob)
             if(output):
-                cv2.putText(img, 'No Mask:%1f'%(float(prob[0][1])), ((bnd[0]+20), bnd[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0), 6)
+                cv2.putText(img, 'No Mask:%.3f'%(float(prob[0][1])), ((bnd[0]+20), bnd[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0), 6)
             else:
-                cv2.putText(img, 'Mask:%1f'%(float(prob[0][0])), ((bnd[0]+20), bnd[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,200,0), 4)
+                cv2.putText(img, 'Mask:%.3f'%(float(prob[0][0])), ((bnd[0]+20), bnd[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,200,0), 4)
     return img
