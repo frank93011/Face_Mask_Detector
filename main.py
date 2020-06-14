@@ -8,11 +8,12 @@ from utils.utils import corp_img, predict_draw
 
 # model loading
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-model_ft = models.resnet18(pretrained=True)
-num_ftrs = model_ft.fc.in_features
-model_ft.fc = nn.Linear(num_ftrs, 2)
+model_ft = models.mobilenet_v2(pretrained=True)
+# num_ftrs = model_ft.fc.in_features
+# model_ft.fc = nn.Linear(num_ftrs, 2)
+model_ft.classifier[1] = nn.Linear(1280, 2)
 print('loading model')
-model_ft.load_state_dict(torch.load('./model/mask_classifier'))
+model_ft.load_state_dict(torch.load('./model/m'))
 model_ft = model_ft.to(device)
 
 # running camera
@@ -26,4 +27,4 @@ while True:
         break
 
 cap.release()
-cv2.destroyWindow("Face Mask Detetor")
+cv2.destroyAllWindow("Face Mask Detetor")
