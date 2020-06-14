@@ -13,6 +13,10 @@ running main.py to open front camera and begin detection
 ```bash
 python3 main.py
 ```
+running convert_video.py to convert normal video with detection boxes.
+```bash
+python3 convert_video.py --input/video/path --output_file_name
+```
 
 ## Demo
 ![](https://i.imgur.com/4XvMYho.png)
